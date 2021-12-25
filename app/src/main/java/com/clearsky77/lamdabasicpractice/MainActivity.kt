@@ -9,12 +9,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d("테스트"," ----- 고차 함수 -----")
         // 고차 함수
         b(::a)
-        Log.d("테스트","b(::a) ------------")
         c(::a)
-        Log.d("테스트","c(::a) ------------")
 
+        // 람다 함수
+        Log.d("테스트"," ----- 람다 함수 -----")
+        // fun a와 같은 기능을 람다 함수로
+//        val aa: (String)->Unit = { str: String -> Log.d("dd 내부","${str}한 람다 함수") }
+        val aa: (String)->Unit = { str -> Log.d("dd 내부","${str}한 람다 함수") }
+//        val aa = { str:String -> Log.d("dd 내부","${str}한 람다 함수") } // 얘는 안됨!!!
+        b(aa)
+        c(aa)
     }
 
     // 고차 함수
